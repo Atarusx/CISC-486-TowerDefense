@@ -1,78 +1,106 @@
-# CISC-486-TowerDefense
+# **CISC-486-TowerDefense**
 
-## Description / Game Type
-**Game name not chosen yet**, is a **top-down co-op tower defense game** with **hero-shooter** aspects implemented. Two or more players control their own unique heros from a preset option to ward off incoming enemy waves. Included will be placing and uphrading towers + their own abilities to protect enemys from reaching the final location and losing.
-
-## Gameplay
-Defence: Stop continyous enemy waves from reaching the final location on a predetermined map.
-Multiplayer: The ability to combine passive and active gameplay with tower placement and heros.
-Hero Abilities: Each hero has a unique skillset that is activated upon a timer, with their own weapons and abilities + having an ultimate skill.
-Upgrades: Credits will be rewarded with respect to the dificulty of eliminating an enemy unit plus rewards upon clearing a wave.
-Respawn System: Heros if getting hit by enemy units and reaching 0 health points, will be downed and have a timer to respawn or have another hero revive them. A credit cost to instantly respawn will be available as well.
-Win Condition: Defeating all enemy units in a wave to get to the next wave. Clearing all waves will complete the game and/or level.
-Lose Condition: THe final location is breached by enemy units and will end the game.
-
-## AI Plan
-Enemy FSM 
-Spawn → Initialize and select randomly from path
-Advance → Follow along path reaching either placed towers in the way to get to the final location
-Engage → Attack the nearest tower or hero when in range
-Targeting → Attack target closest, prioritizing towers and final gate. If none attack final gate unless hero is in range along the path
-Eliminated → Drop credits, visual effect
-
-## Scripted Events
-Boss Enemy Spawn: make towers stop working for selected amount of time
-Unique Hero Ultimate Ability: Allow for attacks to pierce through enemies and increase attack speed
-Unit Wave Spawn: If it takes too long to eliminate all the enemy units, the next wave will activate after a selected amount of time
-Collection and Upgrading time in-between waves: select time to upgrade towers or upgrade heros.
-Wave Difficulty Events: Implementation of night time and day time cycle, with a full moon. In the case of these random events, either more or less enemy units will spawn with varying difficulty to eliminate depending on daytime event.
+## **Description / Game Type**
+**Cordieval Tower Defense** is a top-down co-op tower defense game with hero-shooter aspects implemented.
+Two or more players control their own unique heroes from a preset option to ward off incoming enemy waves. Includes tower placement and upgrading plus hero abilities to prevent enemies from reaching the final location and losing.
 
 
-## Multiplayer Plan / Player Setup
-Co-op Mode: Minimum 2 players, can go up to 4 due to 4 hero selections
-Player versus Player mode: 2 players or 4 players compete to see which team lasts to longest with infinite waves increasing in difficulty 
 
-## Environment
-Theme: Rustic, old-school, knights and devils/zombies
-Map: Different paths for enemies to follow, chokepoints, blindspots and back entrances, build tiles for towers
-Interactive Elements: Trees and obstacles can be destroyed (paying credits) to change pathways
-Pathfinding: A dynamic navigating system to reroute enemies when interactive lane changes occur
+## **Gameplay**
+**Defense:** Stop continuous enemy waves from reaching the final location on a predetermined map.  
+**Multiplayer:** Combine passive and active gameplay with tower placement and heroes.  
+**Hero Abilities:** Each hero has a unique skillset on a timer, with weapons and an ultimate skill.  
+**Upgrades:** Credits rewarded based on enemy difficulty eliminations and wave clears.  
+**Respawn System:** Heroes downed at 0 HP can self-respawn after a timer or be revived; instant respawn costs credits.  
+**Win:** Defeat all enemy waves.  
+**Lose:** Final location breached.
 
-## Assets
-Heros: 4 hero models with unique abilities with archtypes that fit player playstyles.
-Towers: Steampunk and oldschool elements with upgradeable variants.
-Enemies: Zombies of varying sizes, boss units, range and melee units.
-UI: HUD display, tower selection, ability hud with timers and use cost, credit counter, wave indicater, timer for in-between waves, enemy unit indicator.
-VFX: particle effects for abilities around towers and heros, upgrade visual indicators, live display for lane changing of enemy waves.
+---
 
-## Physics
-Rigidbody and colliders on all heros, towers, enemies.
-Projectile physics for hero weapons, abilities, and towers.
-Colliders and triggers on towers, build tiles, revives, and enemy breaches, tower destruction.
-
-## Systems
-Economy: Shared credit counter, tower costs, ability costs, independent hero upgrading credits.
-Wave Manager: Controls spawn timing, difficulty scaling, scripted events, daytime events.
-Upgrading: Handles tower upgrades and tiers, as well hero ability upgrades.
-Reviving: Manages teammate revives and self-respawns under conditions. If not revived by teammate, will lose a tier from an upgraded ability.
-
-## Mechanics
-Hero Progression: Ability upgrades and ultimate ability unlock + upgrade.
-Tower Placement: Select number of tiles to place towers on to upgrade.
-Respawn: Timed-out until timer hits 0 to respawn or have a teamate revive for shorter duration. Optional credit payment to revive instantly.
+## **AI Plan**
+### **Enemy FSM**
+<ins>Spawn → Initialize and select path.</ins>  
+<ins>Advance → Follow path toward the final location, attacking towers if needed.</ins>  
+<ins>Engage → Attack nearest tower or hero when in range.</ins>  
+<ins>Targeting → Prioritize towers, then gate; heroes if in range.</ins>  
+<ins>Eliminated → Drop credits and show visual effects.</ins>
 
 
-## Controls
-Action            Key
-Move              Mouse
-Aim/Shoot         Automatic aiming and shooting once in range
-Ability 1         Q
-Ability 2         W
-Ultimate Ability  E
-Interact          F
-Menu              ESC
 
-## Setup
+## **Scripted Events**
+<ins>Boss Enemy Spawn:</ins> Temporarily disable towers.  
+<ins>Unique Hero Ultimate:</ins> Piercing attacks + increased speed.  
+<ins>Unit Wave Auto-Spawn:</ins> Next wave starts after set time.  
+<ins>Upgrade Break:</ins> Time to upgrade towers/heroes between waves.  
+<ins>Wave Difficulty:</ins> Day/night cycle affects enemy difficulty and gives buffs.
+
+---
+
+## **Multiplayer Plan / Player Setup**
+* Co-op: 2–4 players (4 hero selections).  
+* PvP: Teams compete to survive endless waves.
 
 
-## Deliverables
+
+## **Environment**
+<ins>Theme:</ins> Rustic medieval, knights vs. zombies/devils.  
+<ins>Map:</ins> Multiple paths, chokepoints, build tiles.  
+<ins>Interactive:</ins> Pay credits to destroy trees/obstacles for new paths.  
+<ins>Pathfinding:</ins> Dynamic navigation when lanes change.
+
+---
+
+## **Assets**
+**Heroes:** 4 unique archetypes.  
+**Towers:** Steampunk/medieval, upgradeable.  
+**Enemies:** Varied zombies, ranged/melee, bosses.  
+**UI:** HUD, timers, credit counter, wave indicator.  
+**VFX:** Ability particles, upgrade indicators, lane-change visuals.
+
+
+
+## **Physics**
+* Rigidbody & colliders on heroes, towers, enemies, projectiles.  
+* Projectile physics for weapons/abilities. 
+* Colliders & triggers for towers, build tiles, revives, breaches.
+
+---
+
+## **Systems**
+1. Economy: Shared credits, independent hero upgrades.  
+2. Wave Manager: Controls spawns, difficulty, events.  
+3. Upgrading: Tower/hero ability tiers.  
+4. Reviving: Handles teammate revives and penalties.
+
+
+
+## **Mechanics**
+<ins>Hero Progression:</ins> Ability and ultimate upgrades.  
+<ins>Tower Placement:</ins> Limited build tiles.  
+<ins>Respawn:</ins> Timer or credit-based instant revive.
+
+---
+
+## **Controls**
+
+| **Action** | **Key** |
+|------------|--------|
+| Move | Mouse |
+| Aim/Shoot | Auto aim & shoot in range |
+| Ability 1 | Q |
+| Ability 2 | W |
+| Ultimate | E |
+| Interact | F |
+| Menu | Esc |
+
+
+
+## **Setup + Deliverables**
+* Unity project & C# scripts for controllers/managers.  
+* AI navigation system.  
+* Animation controllers for shooting, upgrades, etc.  
+* Physics for hit detection.  
+* GitHub commits with progress updates.  
+* In-game debugging for states, collisions, HUD.
+
+---
