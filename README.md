@@ -28,11 +28,11 @@ Two or more players control their own unique heroes from a preset option to ward
 
 
 ## **Scripted Events**
-<ins>Boss Enemy Spawn:</ins> Temporarily disable towers.  
-<ins>Unique Hero Ultimate:</ins> Piercing attacks + increased speed.  
-<ins>Unit Wave Auto-Spawn:</ins> Next wave starts after set time.  
-<ins>Upgrade Break:</ins> Time to upgrade towers/heroes between waves.  
-<ins>Wave Difficulty:</ins> Day/night cycle affects enemy difficulty and gives buffs.
+- Boss Enemy Spawn: Temporarily disable towers.  
+- Unique Hero Ultimate: Piercing attacks + increased speed.  
+- Unit Wave Auto-Spawn: Next wave starts after set time.  
+- Upgrade Break: Time to upgrade towers/heroes between waves.  
+- Wave Difficulty: Day/night cycle affects enemy difficulty and gives buffs.
 
 ---
 
