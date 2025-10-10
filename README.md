@@ -20,7 +20,7 @@ Two or more players control their own unique heroes from a preset option to ward
 ## **AI Plan**
 ### **Enemy FSM**
 <ins>Spawn → Initialize and select path.</ins>  
-<ins>Advance → Follow path toward the final location, attacking towers if needed.</ins>  
+<ins>Advance → Follow path toward the final location, attacking towers if blocking path to main castle.</ins>  
 <ins>Engage → Attack nearest tower or hero when in range.</ins>  
 <ins>Targeting → Prioritize towers, then gate; heroes if in range.</ins>  
 <ins>Eliminated → Drop credits and show visual effects.</ins>
@@ -37,7 +37,7 @@ Two or more players control their own unique heroes from a preset option to ward
 ---
 
 ## **Multiplayer Plan / Player Setup**
-* Co-op: 2–4 players (4 hero selections).  
+* Co-op: 2–4 players (4 hero selections). Local and P2P. 
 * PvP: Teams compete to survive endless waves.
 
 
@@ -85,11 +85,11 @@ Two or more players control their own unique heroes from a preset option to ward
 
 | **Action** | **Key** |
 |------------|--------|
-| Move | Mouse |
+| Move | WASD |
 | Aim/Shoot | Auto aim & shoot in range |
 | Ability 1 | Q |
-| Ability 2 | W |
-| Ultimate | E |
+| Ability 2 | E |
+| Ultimate | R |
 | Interact | F |
 | Menu | Esc |
 
