@@ -1,0 +1,22 @@
+# Unity generated
+Library/
+Temp/
+Obj/
+Build/
+Builds/
+Logs/
+UserSettings/
+MemoryCaptures/
+Recordings/
+
+# Unity Asset meta data
+![Aa]ssets/**/*.meta
+![Pp]ackages/**/*.meta
+
+# Visual Studio cache
+.vs/
+.vscode/
+
+# OS generated
+.DS_Store
+Thumbs.db
