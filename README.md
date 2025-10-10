@@ -104,3 +104,23 @@ Two or more players control their own unique heroes from a preset option to ward
 * In-game debugging for states, collisions, HUD.
 
 ---
+
+## **FSM Gameplay**
+
+Enemy AI States:
+
+Idle: Enemy will cycle through a short animation when the player is out of walking range and not detected.
+
+Transition: When the Player is in walking detection range and NOT in running detection range, transition to walking and move animation.
+
+Walking: Enemy will start to move towards the player at walking speed.
+
+Transition: When the Player is in walking detection range AND in running detection range, transition to running and run animation.
+
+Running: Enemy will start to sprit towards the player at running speed.
+
+Gameplay found here: https://drive.google.com/file/d/1tT6EF35HOsqKMx35gLl0tcdy5Pd6bysm/view?usp=sharing
+
+
+
+---
