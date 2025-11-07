@@ -143,6 +143,15 @@ the distance to the portal. The enemy will decide between targeting either place
 
 to clear the path and get to the central portal.  
 
+**Future Implementation**  
+
+* Make the enemy avoid collision with props generated such as rocks to go around
+* Limit chunk generation size
+* Create an enemy wavemanager to allow waves of enemies to spawn rather than having a gameobject placed in the scene
+* Implement Health and Damage to the turrets, portal, player, and enemy
+* Create multiple enemies
+* Create game states for winning, losing, and a HUD
+
 The decision-making is marked with target debugging in the console window, as seen in the video below.  
 Gameplay found here: https://drive.google.com/file/d/1siDTw7YQyLZx46sxqzI-r1w-bK95isNe/view?usp=sharing
 
