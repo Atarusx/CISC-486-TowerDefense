@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class TurretController : WeaponController
+public class PlaceableTurretController : WeaponController
 {
     [Header("Turret Specific")]
     public float detectionRange = 10f;
@@ -83,7 +83,7 @@ public class TurretController : WeaponController
 
     private void RotateTurretTowards()
     {
-        float angle = Mathf.Atan2(nearestEnemy.position.y - transform.position.y, nearestEnemy.position.x - transform.position.x) * Mathf.Rad2Deg + 90f;
+        float angle = Mathf.Atan2(nearestEnemy.position.y - transform.position.y, nearestEnemy.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
 
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
         turretRotationPoint.rotation = targetRotation;

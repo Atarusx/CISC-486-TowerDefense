@@ -3,20 +3,22 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Enemy
+  - Tower
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PLAYER
   - Water
   - UI
-  - 
+  - BULLET
   - Foreground
   - Ground
   - Background
-  - 
-  - 
+  - Enemy
+  - Tower
   - 
   - 
   - 

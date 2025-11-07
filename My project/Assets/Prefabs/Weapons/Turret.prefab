@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2952969813839148702}
   - component: {fileID: 5013660076530779471}
-  - component: {fileID: -3933214928521377011}
+  - component: {fileID: 1646478193965781418}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -26,13 +26,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7388787979527813036}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.25830474, w: 0.9660635}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8714200423456381990}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -29.939}
 --- !u!212 &5013660076530779471
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -91,7 +92,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-3933214928521377011
+--- !u!114 &1646478193965781418
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,7 +101,50 @@ MonoBehaviour:
   m_GameObject: {fileID: 7388787979527813036}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 427e222179788f641ba2ded6b33e4f64, type: 3}
+  m_Script: {fileID: 11500000, guid: 59b46ccff2cd57b40b572e2c24e808c6, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TurretBeh
-  destroyAfterSeconds: 3
+  m_EditorClassIdentifier: Assembly-CSharp::TurretController
+  prefab: {fileID: 7122281743676725802, guid: a5c4c2c97be87174cbd9ff79f083f42a, type: 3}
+  damage: 0
+  speed: 10
+  cooldownDuration: 2
+  pierce: 0
+  detectionRange: 5
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  turretRotationPoint: {fileID: 0}
+  bulletPrefab: {fileID: 0}
+  firingPoint: {fileID: 8714200423456381990}
+  bps: 1
+--- !u!1 &8178280507509925018
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8714200423456381990}
+  m_Layer: 0
+  m_Name: FiringPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8714200423456381990
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8178280507509925018}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.203, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2952969813839148702}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

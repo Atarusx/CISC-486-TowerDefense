@@ -49,8 +49,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Weapons\ProjectileWepBeh.cs" />
+    <Compile Include="Assets\Scripts\Map\Plot.cs" />
     <Compile Include="Assets\Scripts\Map\ChunkTrigger.cs" />
     <Compile Include="Assets\Scripts\Weapons\ProjectileBeh.cs" />
+    <Compile Include="Assets\Scripts\Map\BuildManager.cs" />
     <Compile Include="Assets\Scripts\Player\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Player\NewMonoBehaviourScript.cs" />
     <Compile Include="Assets\Scripts\Map\PropRandomizer.cs" />
@@ -58,6 +60,7 @@
     <Compile Include="Assets\Scripts\Map\MapContr.cs" />
     <Compile Include="Assets\Scripts\Weapons\WeaponController.cs" />
     <Compile Include="Assets\Scripts\Weapons\TurretController.cs" />
+    <Compile Include="Assets\Scripts\Weapons\PlaceableTurretController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAnimator.cs" />
   </ItemGroup>
   <ItemGroup>

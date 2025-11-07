@@ -10,7 +10,7 @@ public class WeaponController : MonoBehaviour
     public float damage;
     public float speed;
     public float cooldownDuration;
-    float currentCooldown;
+    protected float currentCooldown;
     public int pierce;
 
     protected NewMonoBehaviourScript pm;
