@@ -125,3 +125,22 @@ Gameplay found here: https://drive.google.com/file/d/1tT6EF35HOsqKMx35gLl0tcdy5P
 
 
 ---
+## **Multiplayer Setup and Gameplay**  
+
+Enemies now have a wave manager that controls where, how many, and when they spawn.  
+
+Enemies now have health and indicate or flash red when taking damage.  
+
+Game is now compatible with two players on the same system through Unity Netcode.  
+
+SETUP: Go to file in the Unity application and click on Build and Run.  
+
+Once you have the build window open, now run the game in the Unity gameview/sceneview in the application.  
+
+Once both windows are open, one player selects host, and the other selects client.  
+
+Now when switching back and forth from windows both players can be simultaneously controlled and shoot the same enemies that spawn.  
+
+And once you are done either close out of the windows or click the disconnect button!  
+
+Gameplay found here: https://drive.google.com/file/d/1gy_YsfCdBu-jyEWIefYSi4b_2aQsYpty/view?usp=sharing
