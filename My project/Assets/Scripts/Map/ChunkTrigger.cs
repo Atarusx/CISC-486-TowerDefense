@@ -1,6 +1,7 @@
+using Unity.Netcode;
 using UnityEngine;
 
-public class ChunkTrigger : MonoBehaviour
+public class ChunkTrigger : NetworkBehaviour
 {
 
     MapContr mc;
@@ -16,6 +17,8 @@ public class ChunkTrigger : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        if (!IsServer) return;
+
         if (collision.CompareTag("Player"))
         {
             mc.currentChunk = targetMap;
@@ -25,6 +28,8 @@ public class ChunkTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!IsServer) return;
+        
         if (collision.CompareTag("Player"))
         {
             if (mc.currentChunk == targetMap)

@@ -1,6 +1,8 @@
+using Unity.Netcode;
+using Unity.Netcode.Components;
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class EnemyMovement : NetworkBehaviour
 {
 
     [Header("Targets")]
@@ -24,13 +26,25 @@ public class EnemyMovement : MonoBehaviour
     private enum TargetType { HomeTile, Player, Tower, Portal }
     private TargetType currentTarget;
     private Transform lockedTarget;
-
+    private NetworkTransform networkTransform;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        player = FindFirstObjectByType<NewMonoBehaviourScript>().transform;
+        // player = FindFirstObjectByType<NewMonoBehaviourScript>().transform;
+
+        networkTransform = GetComponent<NetworkTransform>();
+
+
+        NewMonoBehaviourScript[] players = FindObjectsOfType<NewMonoBehaviourScript>();
+        if (players.Length > 0)
+        {
+            player = players[0].transform;
+        }
+
+
+
         animator = GetComponent<Animator>();
         currentSpeed = moveSpeed;
         currentTarget = TargetType.HomeTile;
@@ -39,7 +53,9 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (!IsServer) return;
+
+        FindClosestPlayer();
 
         Debug.Log("Current Target: " + currentTarget + " | Speed: " + currentSpeed);
 
@@ -77,6 +93,24 @@ public class EnemyMovement : MonoBehaviour
 
 
         }
+
+    void FindClosestPlayer()
+        {
+            NewMonoBehaviourScript[] players = FindObjectsOfType<NewMonoBehaviourScript>();
+            float closestDistance = Mathf.Infinity;
+
+            foreach (NewMonoBehaviourScript p in players)
+            {
+                float distance = Vector2.Distance(transform.position, p.transform.position);
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    player = p.transform;
+                }
+            }
+
+        }
+
 
     }
     Transform DetermineTarget()

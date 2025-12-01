@@ -1,6 +1,7 @@
+using Unity.Netcode;
 using UnityEngine;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class NewMonoBehaviourScript : NetworkBehaviour
 {
 
     public float moveSpeed;
@@ -13,6 +14,20 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public Vector2 moveDir;
 
 
+
+    public override void OnNetworkSpawn()
+    {
+        base.OnNetworkSpawn();
+
+        gameObject.tag = "Player";
+
+        if (IsOwner)
+        {
+            Camera.main.GetComponent<CameraFollow>()?.SetTarget(transform);
+        }
+    }
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,12 +37,17 @@ public class NewMonoBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (!IsOwner) return;
         InputManagement();
     }
 
     void FixedUpdate()
     {
-        Move();
+        if (IsOwner)
+        {
+            Move();
+        }
     }
 
     void InputManagement()
