@@ -1,26 +1,22 @@
-using Unity.VisualScripting.Antlr3.Runtime;
+using Unity.Netcode;
 using UnityEngine;
-using UnityEngine.AI;
 
-public class ProjectileBeh : ProjectileWepBeh
-
+public class ProjectileBeh : NetworkBehaviour
 {
-
-
     [SerializeField] private float bulletSpeed = 5f;
-
-
     [SerializeField] private Rigidbody2D rb;
-
-    TurretController tc;
+    [SerializeField] private float damage = 10f; 
 
     private Transform target;
+    private NetworkVariable<Vector2> targetPosition = new NetworkVariable<Vector2>();
 
+    public override void OnNetworkSpawn()
+    {
+        base.OnNetworkSpawn();
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+        Destroy(gameObject, 10f);
+    }
 
-
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (!target)
@@ -28,13 +24,14 @@ public class ProjectileBeh : ProjectileWepBeh
             return;
         }
 
-        Vector2 direction = (target.position - transform.position).normalized;
+        if (IsServer)
+        {
+            Vector2 direction = (target.position - transform.position).normalized;
+            rb.linearVelocity = direction * bulletSpeed;
 
-        rb.linearVelocity = direction * bulletSpeed;
-
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, angle - 90f);
-
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0f, 0f, angle - 90f);
+        }
     }
 
     public void SetTarget(Transform _target)
@@ -42,11 +39,29 @@ public class ProjectileBeh : ProjectileWepBeh
         target = _target;
     }
 
+    public void SetDamage(float damageAmount)
+    {
+        damage = damageAmount;
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
+        if (!IsServer) return;
+
+        EnemyHealth enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
+        
+        if (enemyHealth != null)
+        {
+            Debug.Log($"Projectile hit enemy! Dealing {damage} damage.");
+            enemyHealth.TakeDamageServerRpc(damage);
+        }
+
+
+        if (NetworkObject != null && NetworkObject.IsSpawned)
+        {
+            NetworkObject.Despawn();
+        }
         Destroy(gameObject);
     }
-
-
 }

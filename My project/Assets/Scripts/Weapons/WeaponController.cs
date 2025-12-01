@@ -1,8 +1,9 @@
+using Unity.Netcode;
 using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.Timeline;
 
-public class WeaponController : MonoBehaviour
+public class WeaponController : NetworkBehaviour
 {
 
     [Header("Weapon Statistics")]

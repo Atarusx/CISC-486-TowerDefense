@@ -4947,6 +4947,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 802b9aeb337594d41a030841ea29233d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChunkTrigger
+  ShowTopMostFoldoutHeaderGroup: 1
   targetMap: {fileID: 7954691173573356462}
 --- !u!61 &4085741505634866611
 BoxCollider2D:
@@ -5231,6 +5232,7 @@ GameObject:
   - component: {fileID: 6675011077242855985}
   - component: {fileID: 5269018591020567019}
   - component: {fileID: 3990613715311686896}
+  - component: {fileID: -952220330642011266}
   m_Layer: 8
   m_Name: Terrain Chunk 2
   m_TagString: Untagged
@@ -5365,6 +5367,31 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 20, y: 20}
   m_EdgeRadius: 0
+--- !u!114 &-952220330642011266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7954691173573356462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
+  GlobalObjectIdHash: 2864624389
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  DeferredDespawnTick: 0
+  Ownership: 1
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+  SyncOwnerTransformWhenParented: 1
+  AllowOwnerToParent: 0
 --- !u!1 &8353755318922467627
 GameObject:
   m_ObjectHideFlags: 0

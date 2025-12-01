@@ -104,8 +104,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59b46ccff2cd57b40b572e2c24e808c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TurretController
+  ShowTopMostFoldoutHeaderGroup: 1
   prefab: {fileID: 7122281743676725802, guid: a5c4c2c97be87174cbd9ff79f083f42a, type: 3}
-  damage: 0
+  damage: 5
   speed: 10
   cooldownDuration: 2
   pierce: 0
